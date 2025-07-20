@@ -13,9 +13,9 @@ class WelcomePage extends StatelessWidget {
           children: [
             // ✅ Image
             Image.asset(
-              'assets/images/think.png',
-              width: 150,
-              height: 150,
+              'assets/images/bmi2.webp',
+              width: 300,
+              height: 300,
             ),
 
             const SizedBox(height: 20),
@@ -24,20 +24,26 @@ class WelcomePage extends StatelessWidget {
             const Text(
               "Calculate your BMI and know your health!",
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 24),
+              style: TextStyle(fontSize: 24,color: Colors.green),
             ),
 
             const SizedBox(height: 30),
 
             // ✅ Start Button
             ElevatedButton(
-              onPressed: () {
+             style:ElevatedButton.styleFrom(
+              backgroundColor:Colors.green,
+              foregroundColor: Colors.brown,
+               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+             ),
+
+              onPressed: () {   
                 Navigator.push(
-                  context,
+                  context,     
                   MaterialPageRoute(builder: (context) => const InputPage()),
                 );
               },
-              child: const Text("Start"),
+              child: const Text("Start",style: TextStyle(fontSize: 20), ),
             ),
           ],
         ),
