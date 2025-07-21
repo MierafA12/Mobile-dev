@@ -5,45 +5,67 @@ class ResultPage extends StatelessWidget {
 
   const ResultPage({super.key, required this.bmi});
 
-  String getBMIStatus(double bmi) {
-    if (bmi < 18.5) return "Underweight|talk doctor.";
-    if (bmi < 24.9) return "Normal|keep it.";
-    if (bmi < 29.9) return "Overweight|reduce your fat.";
+  String getBMICategory() {
+    if (bmi < 18.5) return "Underweight";
+    if (bmi < 25) return "Normal";
+    if (bmi < 30) return "Overweight";
     return "Obese";
+  }
+
+  Color getCategoryColor() {
+    if (bmi < 18.5) return Colors.blue;
+    if (bmi < 25) return Colors.green;
+    if (bmi < 30) return Colors.orange;
+    return Colors.red;
   }
 
   @override
   Widget build(BuildContext context) {
-    final String status = getBMIStatus(bmi);
+    final category = getBMICategory();
+    final color = getCategoryColor();
 
     return Scaffold(
-      appBar: AppBar(title: const Text("BMI Result")),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
+      appBar: AppBar(title: const Text("Your BMI Result")),
+      body: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 "Your BMI is:",
-                style: const TextStyle(fontSize: 24),
+                style: TextStyle(fontSize: 22, color: Colors.grey[700]),
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 20),
               Text(
-                bmi.toStringAsFixed(2),
+                bmi.toStringAsFixed(1),
                 style: const TextStyle(
-                  fontSize: 48,
+                  fontSize: 60,
                   fontWeight: FontWeight.bold,
-                  color: Colors.purple,
+                  color: Colors.black,
                 ),
               ),
-              const SizedBox(height: 16),
-              Text(
-                "Status: $status",
-                style: const TextStyle(fontSize: 22),
-              ),
               const SizedBox(height: 30),
-              
+              Text(
+                category,
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.w600,
+                  color: color,
+                ),
+              ),
+              const SizedBox(height: 40),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 14),
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text("Calculate Again"),
+              ),
             ],
           ),
         ),
