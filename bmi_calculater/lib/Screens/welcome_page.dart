@@ -19,7 +19,6 @@ class WelcomePage extends StatelessWidget {
             ),
 
             const SizedBox(height: 20),
-
             // ✅ Welcome Text
             const Text(
               "Calculate your BMI and know your health!",
@@ -27,8 +26,7 @@ class WelcomePage extends StatelessWidget {
               style: TextStyle(fontSize: 24,color: Colors.green),
             ),
 
-            const SizedBox(height: 30),
-
+            const SizedBox(height: 30),          
             // ✅ Start Button
             ElevatedButton(
              style:ElevatedButton.styleFrom(
