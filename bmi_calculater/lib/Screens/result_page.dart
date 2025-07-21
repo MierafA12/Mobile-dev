@@ -6,9 +6,9 @@ class ResultPage extends StatelessWidget {
   const ResultPage({super.key, required this.bmi});
 
   String getBMIStatus(double bmi) {
-    if (bmi < 18.5) return "Underweight";
-    if (bmi < 24.9) return "Normal";
-    if (bmi < 29.9) return "Overweight";
+    if (bmi < 18.5) return "Underweight|talk doctor.";
+    if (bmi < 24.9) return "Normal|keep it.";
+    if (bmi < 29.9) return "Overweight|reduce your fat.";
     return "Obese";
   }
 
@@ -43,12 +43,7 @@ class ResultPage extends StatelessWidget {
                 style: const TextStyle(fontSize: 22),
               ),
               const SizedBox(height: 30),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context); // Go back to input page
-                },
-                child: const Text("Back"),
-              )
+              
             ],
           ),
         ),
