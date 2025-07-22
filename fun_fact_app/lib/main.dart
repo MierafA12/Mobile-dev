@@ -26,11 +26,11 @@ class FunFactPage extends StatefulWidget {
   const FunFactPage({super.key});
 
   @override
-  State<FunFactPage> createState() => _FunFactPageState();
+  State<FunFactPage> createState() => FunFactPageState();
 }
 
-class _FunFactPageState extends State<FunFactPage> {
-  final List<String> _funFacts = [
+class FunFactPageState extends State<FunFactPage> {
+  final List<String> funFacts = [
     "Bananas are berries, but strawberries aren’t!",
     "A day on Venus is longer than a year on Venus.",
     "Honey never spoils — archaeologists found edible honey in ancient tombs!",
@@ -43,13 +43,13 @@ class _FunFactPageState extends State<FunFactPage> {
     "A group of flamingos is called a 'flamboyance'.",
   ];
 
-  String _currentFact = "Press the button to get a fun fact!";
+  String currentFact = "Press the button to get a fun fact!";
 
-  void _generateRandomFact() {
+  void generateRandomFact() {
     final random = Random();
-    final fact = _funFacts[random.nextInt(_funFacts.length)];
+    final fact = funFacts[random.nextInt(funFacts.length)];
     setState(() {
-      _currentFact = fact;
+      currentFact = fact;
     });
   }
 
@@ -74,7 +74,7 @@ class _FunFactPageState extends State<FunFactPage> {
                 child: Padding(
                   padding: const EdgeInsets.all(24),
                   child: Text(
-                    _currentFact,
+                    currentFact,
                     style: const TextStyle(fontSize: 20, fontStyle: FontStyle.italic),
                     textAlign: TextAlign.center,
                   ),
@@ -90,7 +90,7 @@ class _FunFactPageState extends State<FunFactPage> {
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                   backgroundColor: Colors.teal,
                 ),
-                onPressed: _generateRandomFact,
+                onPressed: generateRandomFact,
               ),
             ],
           ),
