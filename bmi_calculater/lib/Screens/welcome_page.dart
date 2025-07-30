@@ -7,14 +7,13 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white, // Optional: background color
+      backgroundColor: Colors.white, 
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // ✅ Image
               Image.asset(
                 'assets/images/bmi2.webp',
                 width: 300,
@@ -23,8 +22,6 @@ class WelcomePage extends StatelessWidget {
               ),
 
               const SizedBox(height: 20),
-
-              // ✅ Welcome Text
               const Text(
                 "Calculate your BMI\nand know your health!",
                 textAlign: TextAlign.center,
@@ -36,8 +33,6 @@ class WelcomePage extends StatelessWidget {
               ),
 
               const SizedBox(height: 30),
-
-              // ✅ Start Button
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
