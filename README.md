@@ -23,7 +23,7 @@ A fun app that displays random fun facts each time the user presses a button.
 - Colorful and interactive UI
 - Refresh button to generate new facts
 
-📂 Folder: `fun_fact_generator`
+📂 Folder: `fun_fact_app`
 
 ---
 
@@ -56,16 +56,14 @@ A basic weather application that fetches real-time weather data based on the use
 
 2. Navigate to the desired project:
 
-   ```bash
    cd bmi_calculator # or fun_fact_generator or weather_app
-   ```
+
 
 3. Run the project:
 
-   ```bash
    flutter pub get
    flutter run
-   ```
+
 
 
 
